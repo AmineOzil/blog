@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %} 
+
+    <!-- Content Row -->
+    <div class="row align-content-center">
+    {% for post in posts %}
+      <div class="col-md-4 mb-5">
+        
+        <div class="card h-100">
+          <div class="card-body">
+            <h2 class="card-title">{{ post.title }}</h2>
+            <p class="card-text"> {{ post.content }}</p>
+          </div>
+          <div class="card-footer">
+            <a href="{{ path('post_show', {id: post.id}) }}" class="btn btn-primary btn-sm">Afficher</a>
+          </div>
+        </div>
+        
+      </div>
+      {% endfor %}
+    </div>
+    <!-- /.row -->
+    
+{% endblock %}

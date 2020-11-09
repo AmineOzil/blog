@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %} 
+    <div class="card">
+      <h5 class="card-header">{{ post.title }}</h5>
+      <div class="card-body">
+        <h5 class="card-title">{{ post.content }}</h5>
+        <a href="{{ path('home') }}" class="btn btn-primary btn-sm">Retour</a>
+      </div>
+    </div>
+      
+{% endblock %}

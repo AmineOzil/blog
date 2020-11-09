@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %} 
+
+    <!-- Content Row -->
+    <div class="row">
+     
+      <div class="col-md-4 mb-5">
+
+       {{ content|json_encode(constant('JSON_PRETTY_PRINT')) }}
+
+ </ul>
+        
+        
+      </div>
+      
+    </div>
+    <!-- /.row -->
+    
+{% endblock %}

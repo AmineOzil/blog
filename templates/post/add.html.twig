@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %} 
+
+    <!-- Content Row -->
+    <div class="row">
+
+    <div class="card"  style="width:100%">
+        <h5 class="card-header">Ajouter un post</h5>
+        <div class="card-body">
+             {{ form_start(form) }}
+        
+            <div class="my-custom-class-for-errors">
+                {{ form_errors(form) }}
+            </div>
+
+            <div class="form-group">
+                <label for="exampleInputEmail1">{{ form_label(form.title) }} </label>
+                 {{ form_widget(form.title,  {'attr' : { 'class' : 'form-control', 'placeholder':'Entrer un titre' }}) }}
+                <small id="emailHelp" class="form-text text-danger">  {{ form_errors(form.title) }}   </small>
+            </div>
+
+            <div class="form-group">
+                <label for="exampleInputEmail1">{{ form_label(form.content) }}</label>
+                 {{ form_widget(form.content, {'attr' : { 'class' : 'form-control', 'placeholder':'Entrer un contenu' }}) }}
+                <small id="emailHelp" class="form-text text-danger" > {{ form_errors(form.content) }} </small>
+            </div>
+
+            <div class="form-group">
+                {{ form_widget(form.add, {'attr' : { 'class' : 'btn btn-success' }}) }}
+            </div>
+
+        {{ form_end(form) }}
+        </div>
+    </div>
+    </div>
+    <!-- /.row -->
+    
+{% endblock %}
