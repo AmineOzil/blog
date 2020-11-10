@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Form\PostFormType;
+use App\Form\UserFormType;
 use App\Entity\Post;
 use App\Entity\User;
 use Symfony\Component\HttpFoundation\Request;
@@ -68,7 +69,6 @@ class AdminController extends AbstractController
         
 
         return $this->render('post/add.html.twig', [
-            'controller_name' => 'AdminController',
             'form' => $form->createView(),
         ]);
     }
@@ -93,7 +93,6 @@ class AdminController extends AbstractController
         }
         
         return $this->render('post/add.html.twig', [
-            'controller_name' => 'AdminController',
             'form' => $form->createView(),
         ]);
     }
@@ -113,20 +112,41 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/user/add", name="admin_user_delete")
+     * @Route("/admin/user/add", name="admin_user_register")
      */
     public function useAdd(Request $request, PostRepository $postRepository): Response
     {
+
+        $user = new User();
+        $form = $this->createForm(UserFormType::class, $user);
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $user = $form->getData();
+            $user->setPassword($this->passwordEncoder->encodePassword($user, $user->getPassword()));
+            $user->setRoles(['ROLE_ADMIN']);
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($user);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('app_login');
+        }
+        
+
+        return $this->render('admin/register.html.twig', [
+            'form' => $form->createView(),
+        ]);
+
+        /*
         $user = new User();
         $user->setEmail('karim');
         $user->setPassword($this->passwordEncoder->encodePassword($user, 'karim'));
         $user->setRoles(['ROLE_ADMIN']);
-
         $entityManager = $this->getDoctrine()->getManager();
         $entityManager->persist($user);
         $entityManager->flush();
-        
         return $this->redirectToRoute('admin_home');
+        */
     }
 
 
