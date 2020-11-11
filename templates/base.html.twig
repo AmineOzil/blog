@@ -38,6 +38,20 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
+
+
+                <ul class="navbar-nav ml-auto">
+                    <form action="{{ path('post_search') }}" method="post">
+                        <div class="input-group">
+                            <input type="text" name="search" class="form-control" placeholder="Chercher un post" aria-label="un post" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-warning" type="submit">Chercher</button>
+                            </div>
+                        </div>
+                    </form>
+                </ul>
+
+
                 <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
                     {% if is_granted('IS_AUTHENTICATED_FULLY') %}

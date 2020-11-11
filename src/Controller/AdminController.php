@@ -44,22 +44,12 @@ class AdminController extends AbstractController
     public function add(Request $request): Response
     {       
        
-        // creates a post object and initializes some data 
         $post = new Post();
-        //$post->setTitle('title1');
-        //$post->getContent('content1');
-        //$post->setDatePublication(new \DateTime('now'));
-
         $form = $this->createForm(PostFormType::class, $post);
-
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            // $form->getData() holds the submitted values
-            // but, the original `$task` variable has also been updated
             $post = $form->getData();
             $post->setDatePublication(new \DateTime('now'));
-            // ... perform some action, such as saving the task to the database
-            // for example, if Task is a Doctrine entity, save it!
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($post);
             $entityManager->flush();
