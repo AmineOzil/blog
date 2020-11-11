@@ -28,11 +28,12 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
             <div class="container">
             <a class="navbar-brand" href="{{ path('home') }}">
-                Bienvenue
+                
                 {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                      {{ app.user.email }}
+                {% else %}
+                    Bienvenue à CGI
                 {% endif %}
-                à CGI
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -40,16 +41,7 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
 
 
-                <ul class="navbar-nav ml-auto">
-                    <form action="{{ path('post_search') }}" method="post">
-                        <div class="input-group">
-                            <input type="text" name="search" class="form-control" placeholder="Chercher un post" aria-label="un post" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-warning" type="submit">Chercher</button>
-                            </div>
-                        </div>
-                    </form>
-                </ul>
+                
 
 
                 <ul class="navbar-nav ml-auto">
@@ -93,6 +85,17 @@
                         <a class="nav-link" href="{{ path('app_login') }}">Connexion</a>
                     </li>
                 {% endif %}
+                </ul>
+
+                <ul class="navbar-nav ml-auto">
+                    <form action="{{ path('post_search') }}" method="post">
+                        <div class="input-group">
+                            <input type="text" name="search" class="form-control" placeholder="Chercher un post" aria-label="un post" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-warning" type="submit">Chercher</button>
+                            </div>
+                        </div>
+                    </form>
                 </ul>
             </div>
             </div>
