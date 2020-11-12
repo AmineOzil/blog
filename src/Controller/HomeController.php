@@ -17,9 +17,17 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 class HomeController extends AbstractController
 {
     /**
-     * @Route("/", name="home")
+     * @Route("/", name="index_for_heroku")
      */
     public function index(TranslatorInterface $translator): Response
+    {  
+        return $this->redirectToRoute('home');
+    }
+    
+    /**
+     * @Route("/{_locale}", name="home")
+     */
+    public function home(TranslatorInterface $translator): Response
     {  
         //$translated = $translator->trans('blog.add');
 
