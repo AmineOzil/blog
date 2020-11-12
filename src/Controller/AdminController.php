@@ -64,11 +64,11 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/{_locale}/admin/post/edit/{id}", name="admin_post_edit")
+     * @Route("/{_locale}/admin/post/edit/{slug}", name="admin_post_edit")
      */
-    public function edit(Request $request, $id, PostRepository $postRepository): Response
+    public function edit(Request $request, $slug, PostRepository $postRepository): Response
     {
-        $post = $postRepository->find($id);
+        $post = $postRepository->findOneBy(array('slug' => $slug));
         $form = $this->createForm(PostFormType::class, $post);
 
         $form->handleRequest($request);
@@ -88,11 +88,11 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/{_locale}/admin/post/delete/{id}", name="admin_post_delete")
+     * @Route("/{_locale}/admin/post/delete/{slug}", name="admin_post_delete")
      */
-    public function delete(Request $request, $id, PostRepository $postRepository): Response
+    public function delete(Request $request, $slug, PostRepository $postRepository): Response
     {
-        $post = $postRepository->find($id);
+        $post = $postRepository->findOneBy(array('slug' => $slug));
 
         $entityManager = $this->getDoctrine()->getManager();
         $entityManager->remove($post);

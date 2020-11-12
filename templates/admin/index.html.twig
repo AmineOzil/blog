@@ -25,9 +25,9 @@
                     <td>{{ post.content|slice(0, 50)}} ...</td>
                     <td>{{ post.datePublication|date('Y-m-d')}}</td>
                     <td> 
-                        <a href="{{ path('post_show', {id: post.id}) }}" class="btn btn-warning btn-sm">Afficher</a>
-                        <a href="{{ path('admin_post_edit', {id: post.id}) }}" class="btn btn-primary btn-sm">Modifier</a> 
-                        <a href="{{ path('admin_post_delete', {id: post.id}) }}" class="btn btn-danger btn-sm">Supprimer</a>
+                        <a href="{{ path('post_show', {slug: post.slug}) }}" class="btn btn-warning btn-sm">Afficher</a>
+                        <a href="{{ path('admin_post_edit', {slug: post.slug}) }}" class="btn btn-primary btn-sm">Modifier</a> 
+                        <a href="{{ path('admin_post_delete', {slug: post.slug}) }}" class="btn btn-danger btn-sm">Supprimer</a>
                     </td>
                 </tr>
                 {% endfor %}

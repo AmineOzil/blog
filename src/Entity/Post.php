@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\PostRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * @ORM\Entity(repositoryClass=PostRepository::class)
@@ -25,6 +26,13 @@ class Post
      */
     private $title;
 
+     /**
+     * @Gedmo\Slug(fields={"title", "id", "datePublication"})
+     * @ORM\Column(length=128, unique=true)
+     */
+    private $slug;
+ 
+
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Groups("post:read")
@@ -32,6 +40,7 @@ class Post
     private $content;
 
     /**
+     * @Gedmo\Timestampable(on="update") 
      * @ORM\Column(type="datetime", nullable=true)
      * @Groups("post:read")
      */
@@ -53,6 +62,12 @@ class Post
 
         return $this;
     }
+
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
 
     public function getContent(): ?string
     {

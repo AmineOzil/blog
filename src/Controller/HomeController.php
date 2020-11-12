@@ -33,13 +33,13 @@ class HomeController extends AbstractController
     }
 
     /**
-     * @Route("/{_locale}/post/{id}", name="post_show")
+     * @Route("/{_locale}/post/{slug}", name="post_show")
      */
-    public function postShowById($id, PostRepository $postRepository): Response
+    public function postShowById($slug, PostRepository $postRepository): Response
     {   
         // get list of post from database
         $post = $postRepository
-        ->find($id);
+        ->findOneBy(array('slug' => $slug));
 
         return $this->render('post/show.html.twig', [
             'post' => $post,
