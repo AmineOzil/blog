@@ -5,7 +5,7 @@
 <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50" style=" margin-left: auto; margin-right: auto;" >
     <form class="login100-form validate-form" method="post">
         <span class="login100-form-title p-b-33">
-        Espace Admin
+         {% trans %}admin.login.title{% endtrans %}
         </span>
         {% if error %}
             <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
@@ -16,12 +16,12 @@
             </div>
         {% endif %}
         <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
-            <input class="input100" type="email" value="{{ last_username }}" name="email" id="inputEmail" placeholder="Email">
+            <input class="input100" type="email" value="{{ last_username }}" name="email" id="inputEmail" placeholder="{% trans %}admin.register.email{% endtrans %}">
             <span class="focus-input100-1"></span>
             <span class="focus-input100-2"></span>
         </div>
         <div class="wrap-input100 rs1 validate-input" data-validate="Password is required">
-            <input class="input100" type="password" name="password" id="inputPassword" required placeholder="Password">
+            <input class="input100" type="password" name="password" id="inputPassword" required placeholder="{% trans %}admin.register.password{% endtrans %}">
             <span class="focus-input100-1"></span>
             <span class="focus-input100-2"></span>
         </div>
@@ -29,7 +29,7 @@
 
         <div class="container-login100-form-btn m-t-20">
             <button class="login100-form-btn">
-            Se connecter
+            {% trans %}menu.login{% endtrans %}
             </button>
         </div>
         <!--

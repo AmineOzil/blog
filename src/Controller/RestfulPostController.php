@@ -21,7 +21,7 @@ class RestfulPostController extends AbstractController
     }
 
     /**
-     * @Route("/api/rest/post/", name="restful_post_publish", methods={"GET"})
+     * @Route("/{_locale}/api/rest/post/", name="restful_post_publish", methods={"GET"})
      */
     public function produceRestAPi(PostRepository $postRepository,  EntityManagerInterface $em): Response
     {
@@ -33,7 +33,7 @@ class RestfulPostController extends AbstractController
     }
 
     /**
-     * @Route("/api/rest/post/consume", name="restful_post_consume", methods={"GET"})
+     * @Route("/{_locale}/api/rest/post/consume", name="restful_post_consume", methods={"GET"})
      */
     public function consumeRestApi(): Response
     {

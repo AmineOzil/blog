@@ -10,16 +10,19 @@ use App\Entity\Post;
 use App\Repository\PostRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Contracts\Translation\TranslatorInterface;
+
 
 
 class HomeController extends AbstractController
 {
     /**
-     * @Route("/", name="home")
+     * @Route("/{_locale}", name="home")
      */
-    public function index(): Response
-    {   
-        // get list of post from database
+    public function index(TranslatorInterface $translator): Response
+    {  
+        //$translated = $translator->trans('blog.add');
+
         $posts = $this->getDoctrine()
         ->getRepository(Post::class)
         ->findAll();
@@ -30,7 +33,7 @@ class HomeController extends AbstractController
     }
 
     /**
-     * @Route("/post/{id}", name="post_show")
+     * @Route("/{_locale}/post/{id}", name="post_show")
      */
     public function postShowById($id, PostRepository $postRepository): Response
     {   
@@ -44,7 +47,7 @@ class HomeController extends AbstractController
     }
 
     /**
-     * @Route("/search", name="post_search")
+     * @Route("/{_locale}/search", name="post_search")
      */
     public function searchPost(Request $request, EntityManagerInterface $em): Response
     {   

@@ -1,0 +1,33 @@
+welcome: Welcome to CGI
+menu:
+    home: Home
+    restApi: RESTful API
+    externApi: Extern API
+    register: Register
+    login: Log in
+    logout: Log out
+    search: Search
+    admin: Admin
+language: 
+    title: language
+    english: English
+    french: French
+blog:
+    add: Add
+    add.title: Add a post
+    show: Show
+    delete: Delete
+    return: Go Back
+post:
+    title: Title
+    content: Content
+    datePublication: Publication Date
+    operations: Operations
+
+admin:
+    register:
+        user: Register
+        email: Email
+        password: Password
+    login:
+        title: Log in as Admin

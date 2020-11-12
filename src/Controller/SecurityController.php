@@ -11,14 +11,15 @@ class SecurityController extends AbstractController
 {
 
     /**
-     * @Route("/logout", name="app_logout")
+     * @Route("/{_locale}/logout", name="app_logout")
      */
     public function logout()
     {
         throw new \LogicException('This method can be blank - it will be intercepted by the logout key on your firewall.');
+        //return $this->redirectToRoute('home');
     }
     /**
-     * @Route("/login", name="app_login")
+     * @Route("/{_locale}/login", name="app_login")
      */
     public function login(AuthenticationUtils $authenticationUtils): Response
     {

@@ -25,7 +25,7 @@ class AdminController extends AbstractController
 
     
     /**
-     * @Route("/admin/home", name="admin_home")
+     * @Route("/{_locale}/admin/home", name="admin_home")
      */
     public function adminHome(Request $request): Response
     {       
@@ -39,7 +39,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/post/add", name="admin_post_add")
+     * @Route("/{_locale}/admin/post/add", name="admin_post_add")
      */
     public function add(Request $request): Response
     {       
@@ -64,7 +64,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/post/edit/{id}", name="admin_post_edit")
+     * @Route("/{_locale}/admin/post/edit/{id}", name="admin_post_edit")
      */
     public function edit(Request $request, $id, PostRepository $postRepository): Response
     {
@@ -88,7 +88,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/post/delete/{id}", name="admin_post_delete")
+     * @Route("/{_locale}/admin/post/delete/{id}", name="admin_post_delete")
      */
     public function delete(Request $request, $id, PostRepository $postRepository): Response
     {
@@ -102,7 +102,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/user/add", name="admin_user_register")
+     * @Route("/{_locale}/admin/user/add", name="admin_user_register")
      */
     public function useAdd(Request $request, PostRepository $postRepository): Response
     {
