@@ -31,3 +31,6 @@ admin:
         password: Password
     login:
         title: Log in as Admin
+
+restful:
+    info: Restful test of data retreived from

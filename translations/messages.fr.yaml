@@ -32,3 +32,6 @@ admin:
         password: Mot de passe
     login:
         title: Espace Administrateur
+
+restful:
+    info: Test de Restful webservice des données récupérées à partir de
