@@ -2,10 +2,13 @@
 Participant au projet:
 	Karim Dahdouh & Mohamed Hassan Ibrahim
 =========================================
+
+
 Comptes d'accéder à l'application:
 	Role Admin:
 		login: admin.e-app@gmail.com
 		password: admin
+		
 	Vous pouvez créer autant de comte que vous voulez via la rubrique S'inscrire/Register.
 ==========================================
 
