@@ -1,4 +1,5 @@
-welcome: Welcome to CGI
+welcome: Welcome to CGI blog
+title: CGI blog
 menu:
     home: Home
     restApi: RESTful API

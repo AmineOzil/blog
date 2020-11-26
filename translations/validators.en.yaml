@@ -1,0 +1,3 @@
+blog:
+  title: The title cannot be empty
+  content: The content cannot be empty

@@ -6,7 +6,7 @@ menu:
     register: S'inscrire
     login: Se connecter
     logout: Se déconnecter
-    search: Search
+    search: Chercher
     admin: Admin
 language: 
     title: Langue

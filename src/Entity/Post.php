@@ -6,6 +6,8 @@ use App\Repository\PostRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * @ORM\Entity(repositoryClass=PostRepository::class)
@@ -23,12 +25,14 @@ class Post
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Groups("post:read")
+     * @Assert\NotBlank
      */
     private $title;
 
      /**
      * @Gedmo\Slug(fields={"title", "id", "datePublication"})
      * @ORM\Column(length=128, unique=true)
+     * @Assert\NotBlank(message="blog.title")
      */
     private $slug;
  
