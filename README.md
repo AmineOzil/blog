@@ -1,18 +1,18 @@
-## Participant au projet:
- ### Karim Dahdouh & Mohamed Hassan Ibrahim
+# Participant au projet:
+ ## Karim Dahdouh & Mohamed Hassan Ibrahim
  
 
-## Application déploiyer sur Heroku: 
+#### Application déploiyer sur Heroku: 
  ### https://cgi-blog.herokuapp.com/
 
-## Comptes d'accéder à l'application:
+#### Comptes d'accéder à l'application:
 	Role Admin:
 		login: admin.e-app@gmail.com
 		password: admin
 		
 	Vous pouvez créer autant de comte que vous voulez via la rubrique S'inscrire/Register.
 
-## Fonctionnalités
+#### Fonctionnalités
 	1. Pour la partie fontend de l'application a été développé avec bootsrap.
 	2. L'application est disponible en français et anglais.
 	3. L'uitlisateur ou admin peux lancer une recherche un article.
