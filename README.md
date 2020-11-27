@@ -2,7 +2,7 @@
  ## Karim Dahdouh & Mohamed Hassan Ibrahim
  
 
-#### Application déploiyer sur Heroku: 
+#### Application déployer sur Heroku: 
  ### https://cgi-blog.herokuapp.com/
 
 #### Comptes d'accéder à l'application:
