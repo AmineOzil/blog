@@ -5,7 +5,7 @@
 #### Application déployer sur Heroku: 
  ### https://cgi-blog.herokuapp.com/
 
-#### Comptes d'accéder à l'application:
+#### Comptes pour accéder à l'application:
 	Role Admin:
 		login: admin.e-app@gmail.com
 		password: admin
