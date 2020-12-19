@@ -34,4 +34,8 @@ admin:
         title: Log in as Admin
 
 restful:
-    info: Restful test of data retreived from
+    info: Consume Restful webservice test of data retreived from
+    api:
+        nom: Empolyee Name
+        salaire: Salary
+        age: Age

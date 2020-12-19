@@ -34,4 +34,8 @@ admin:
         title: Espace Administrateur
 
 restful:
-    info: Test de Restful webservice des données récupérées à partir de
+    info: Test de l'utilisation de Restful webservice de API disponible sur ce lien 
+    api:
+        nom: Nom employé
+        salaire: Salaire
+        age: Age

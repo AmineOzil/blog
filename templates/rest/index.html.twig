@@ -9,7 +9,7 @@
      
       <div class="col-md-12 mb-12">
         <div class="alert alert-primary" role="alert">
-              {% trans %}restful.info{% endtrans %} :   
+              <h2> {% trans %}restful.info{% endtrans %} :  <h2>
               <a href="http://dummy.restapiexample.com/api/v1/employees" target="_blank" class="btn btn-warning" role="button" aria-pressed="true">
               http://dummy.restapiexample.com/api/v1/employees
               </a>
@@ -17,7 +17,33 @@
 
         </div>
         
-       {{ content|json_encode(constant('JSON_PRETTY_PRINT')) }}
+       {# {{ content|json_encode(constant('JSON_PRETTY_PRINT')) }} #}
+
+        <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                  <th class="th-sm"> {% trans %}restful.api.nom{% endtrans %} </th>
+                  <th class="th-sm"> {% trans %}restful.api.salaire{% endtrans %} </th>
+                  <th class="th-sm"> {% trans %}restful.api.age{% endtrans %} </th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for c in content %}
+                <tr>
+                    <td>{{ c['employee_name']}}</td>
+                    <td>{{ c['employee_salary']}}</td>
+                    <td>{{ c['employee_age']}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            <tfoot>
+                <tr>
+                <th>Titre
+                </th>
+                <th class="th-sm">Operations </th>
+                </tr>
+            </tfoot>
+        </table>
 
  </ul>
         

@@ -46,6 +46,7 @@ class RestfulPostController extends AbstractController
         //$contentType = $response->getHeaders()['content-type'][0];
         //$content = $response->getContent();
         $content = $response->toArray();
+        $content = $content['data'];
 
         
         return $this->render('rest/index.html.twig', [

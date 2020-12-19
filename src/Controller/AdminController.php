@@ -12,6 +12,9 @@ use App\Entity\User;
 use Symfony\Component\HttpFoundation\Request;
 use App\Repository\PostRepository;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Doctrine\ORM\EntityManagerInterface;
+use Knp\Component\Pager\PaginatorInterface;
+
 
 
 class AdminController extends AbstractController
@@ -23,27 +26,44 @@ class AdminController extends AbstractController
         $this->passwordEncoder = $passwordEncoder;
     }
 
-    
+
     /**
      * @Route("/{_locale}/admin/home", name="admin_home")
      */
-    public function adminHome(Request $request): Response
-    {       
-        $posts = $this->getDoctrine()
-        ->getRepository(Post::class)
-        ->findAll();
+    public function adminHome(Request $request, EntityManagerInterface $em, PaginatorInterface $paginator): Response
+    {
+        // $posts = $this->getDoctrine()
+        // ->getRepository(Post::class)
+        // ->findAll();
 
-        return $this->render('admin/index.html.twig', [
-            'posts' => $posts,
-        ]);
+        // return $this->render('admin/index.html.twig', [
+        //     'posts' => $posts,
+        // ]);
+
+
+        $dql   = "SELECT a FROM App\Entity\Post a";
+        $query = $em->createQuery($dql);
+
+        //$query = $em->createQuery("SELECT p FROM App\Entity\Post p  WHERE p.content LIKE '%".$request->get('search')."%' OR p.title LIKE '%".$request->get('search')."%' ");
+
+        $pagination = $paginator->paginate(
+            $query, /* query NOT result */
+            $request->query->getInt('page', 1), /*page number*/
+            2 /*limit per page*/
+        );
+
+        // parameters to template
+        return $this->render('admin/index.html.twig', ['pagination' => $pagination]);
+
+
     }
 
     /**
      * @Route("/{_locale}/admin/post/add", name="admin_post_add")
      */
     public function add(Request $request): Response
-    {       
-       
+    {
+
         $post = new Post();
         $form = $this->createForm(PostFormType::class, $post);
         $form->handleRequest($request);
@@ -56,7 +76,7 @@ class AdminController extends AbstractController
 
             return $this->redirectToRoute('admin_home');
         }
-        
+
 
         return $this->render('post/add.html.twig', [
             'form' => $form->createView(),
@@ -81,7 +101,7 @@ class AdminController extends AbstractController
 
             return $this->redirectToRoute('home');
         }
-        
+
         return $this->render('post/add.html.twig', [
             'form' => $form->createView(),
         ]);
@@ -97,7 +117,7 @@ class AdminController extends AbstractController
         $entityManager = $this->getDoctrine()->getManager();
         $entityManager->remove($post);
         $entityManager->flush();
-        
+
         return $this->redirectToRoute('admin_home');
     }
 
@@ -121,7 +141,7 @@ class AdminController extends AbstractController
 
             return $this->redirectToRoute('app_login');
         }
-        
+
 
         return $this->render('admin/register.html.twig', [
             'form' => $form->createView(),
@@ -140,5 +160,5 @@ class AdminController extends AbstractController
     }
 
 
-    
+
 }

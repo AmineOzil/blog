@@ -32,7 +32,6 @@ class Post
      /**
      * @Gedmo\Slug(fields={"title", "id", "datePublication"})
      * @ORM\Column(length=128, unique=true)
-     * @Assert\NotBlank(message="blog.title")
      */
     private $slug;
  
