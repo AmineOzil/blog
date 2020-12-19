@@ -30,13 +30,6 @@ class HomeController extends AbstractController
      */
     public function home(Request $request, EntityManagerInterface $em, PaginatorInterface $paginator): Response
     {  
-        // $posts = $this->getDoctrine()
-        // ->getRepository(Post::class)
-        // ->findAll();
-        // return $this->render('home/index.html.twig', [
-        //     'posts' => $posts,
-        // ]);
-
         $dql   = "SELECT a FROM App\Entity\Post a";
         $query = $em->createQuery($dql);
         $pagination = $paginator->paginate(
