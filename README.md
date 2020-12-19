@@ -18,7 +18,7 @@
  3. L'uitlisateur ou admin peux lancer une recherche un article.
  4. La gestion de d'authentification et d'autorisation a été implémenté à l'aide de SecurityBundle de Symfony
  5. La validation de formulaires aussi été prise en compte.
- 6. Pagination  et tri des posts dans l'espace d'administration
+ 6. Pagination  et tri des posts
  7. Personalisation de page d'erreur
  8. L'application implémente StofDoctrineExtensionsBundle pour generer des alias d'URLs et rentre les articles timestampable et sluggable.
  9. Autres fonctionnalités:
