@@ -17,6 +17,7 @@ blog:
     add: Add
     add.title: Add a post
     show: Show
+    update: Update
     delete: Delete
     return: Go Back
 post:
@@ -39,3 +40,7 @@ restful:
         nom: Empolyee Name
         salaire: Salary
         age: Age
+errorpage:
+    title: Error
+    message: The page you are looking for was not found.
+    gohome: Back to Home

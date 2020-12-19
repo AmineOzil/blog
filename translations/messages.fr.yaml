@@ -17,6 +17,7 @@ blog:
     add.title: Ajouter un post
     show: Afficher
     delete: Supprimer
+    update: Modifier
     return: Retour
 
 post:
@@ -39,3 +40,7 @@ restful:
         nom: Nom employé
         salaire: Salaire
         age: Age
+errorpage:
+    title: Erreur
+    message: La page que vous cherche n'a pas été trouvé
+    gohome: Retourner à la page d'acceuil

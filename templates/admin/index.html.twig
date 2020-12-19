@@ -6,8 +6,8 @@
 
     <!-- Content Row -->
     <div class="row">
-        <button type="button" class="btn btn-primary">
-            <a style="color: #fff;" href="{{ path('admin_post_add') }}">{% trans %}blog.add{% endtrans %}</a>
+        <button type="button" class="btn btn-success btn-lg active" role="button" aria-pressed="true">
+            <a style="color: #fff; font-size: 18px;" href="{{ path('admin_post_add') }}">{% trans %}blog.add{% endtrans %}</a>
         </button> <br/>
          <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
             <thead>
@@ -31,9 +31,9 @@
                     <td>{{ post.content|slice(0, 50)}} ...</td>
                     <td>{{ post.datePublication|date('Y-m-d')}}</td>
                     <td> 
-                        <a href="{{ path('post_show', {slug: post.slug}) }}" class="btn btn-warning btn-sm">Afficher</a>
-                        <a href="{{ path('admin_post_edit', {slug: post.slug}) }}" class="btn btn-primary btn-sm">Modifier</a> 
-                        <a href="{{ path('admin_post_delete', {slug: post.slug}) }}" class="btn btn-danger btn-sm">Supprimer</a>
+                        <a href="{{ path('post_show', {slug: post.slug}) }}" class="btn btn-warning btn-sm"> {% trans %}blog.show{% endtrans %} </a>
+                        <a href="{{ path('admin_post_edit', {slug: post.slug}) }}" class="btn btn-primary btn-sm">{% trans %}blog.update{% endtrans %}</a> 
+                        <a href="{{ path('admin_post_delete', {slug: post.slug}) }}" class="btn btn-danger btn-sm">{% trans %}blog.delete{% endtrans %}</a>
                     </td>
                 </tr>
                 {% endfor %} 
