@@ -32,30 +32,16 @@ class AdminController extends AbstractController
      */
     public function adminHome(Request $request, EntityManagerInterface $em, PaginatorInterface $paginator): Response
     {
-        // $posts = $this->getDoctrine()
-        // ->getRepository(Post::class)
-        // ->findAll();
-
-        // return $this->render('admin/index.html.twig', [
-        //     'posts' => $posts,
-        // ]);
-
-
+        // espace admin avec pagination et tri
         $dql   = "SELECT a FROM App\Entity\Post a";
         $query = $em->createQuery($dql);
-
-        //$query = $em->createQuery("SELECT p FROM App\Entity\Post p  WHERE p.content LIKE '%".$request->get('search')."%' OR p.title LIKE '%".$request->get('search')."%' ");
-
         $pagination = $paginator->paginate(
-            $query, /* query NOT result */
-            $request->query->getInt('page', 1), /*page number*/
-            2 /*limit per page*/
+            $query, /* requete*/
+            $request->query->getInt('page', 1), /*numerode page par dafault est 1*/
+            5 /*limit de post de chaque page*/
         );
 
-        // parameters to template
         return $this->render('admin/index.html.twig', ['pagination' => $pagination]);
-
-
     }
 
     /**
