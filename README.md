@@ -32,7 +32,7 @@
  - KnpPaginatorBundle: pour impelementer la pagination
  - StofDoctrineExtensionsBundle: Timestampable, Sluggable, Translatable.
 	
-- Le desing de l'application à été fait avec Bootsrap 4.5
+> Le desing de l'application à été fait avec Bootsrap 4.5
 
 	
 	
