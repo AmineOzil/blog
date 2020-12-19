@@ -1,4 +1,4 @@
-#### Participants au projet:
+#### Participants:
  ## Karim Dahdouh & Mohamed Hassan Ibrahim
  
 
