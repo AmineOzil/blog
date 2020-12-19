@@ -28,9 +28,10 @@
 		Afficher article 
 	
 ### Bundles utilisés
-	symfony/security-bundle
-	KnpPaginatorBundle
-	StofDoctrineExtensionsBundle: Timestampable, Sluggable, Translatable, etc.
+	symfony/security-bundle: gestion d'authentification et d'autorisation des utilisateurs de l'application
+	KnpPaginatorBundle: pour impelementer la pagination
+	StofDoctrineExtensionsBundle: Timestampable, Sluggable, Translatable.
+	
 - Le desing de l'application à été fait avec Bootsrap 4.5
 
 	
