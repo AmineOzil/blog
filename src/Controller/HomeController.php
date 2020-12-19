@@ -11,6 +11,7 @@ use App\Repository\PostRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
+use Knp\Component\Pager\PaginatorInterface;
 
 
 
@@ -27,17 +28,24 @@ class HomeController extends AbstractController
     /**
      * @Route("/{_locale}", name="home")
      */
-    public function home(TranslatorInterface $translator): Response
+    public function home(Request $request, EntityManagerInterface $em, PaginatorInterface $paginator): Response
     {  
-        //$translated = $translator->trans('blog.add');
+        // $posts = $this->getDoctrine()
+        // ->getRepository(Post::class)
+        // ->findAll();
+        // return $this->render('home/index.html.twig', [
+        //     'posts' => $posts,
+        // ]);
 
-        $posts = $this->getDoctrine()
-        ->getRepository(Post::class)
-        ->findAll();
+        $dql   = "SELECT a FROM App\Entity\Post a";
+        $query = $em->createQuery($dql);
+        $pagination = $paginator->paginate(
+            $query, /* requete*/
+            $request->query->getInt('page', 1), /*numerode page par dafault est 1*/
+            5 /*limit de post de chaque page*/
+        );
 
-        return $this->render('home/index.html.twig', [
-            'posts' => $posts,
-        ]);
+        return $this->render('home/index.html.twig', ['pagination' => $pagination]);
     }
 
     /**
