@@ -10,7 +10,7 @@
 		login: admin.e-app@gmail.com
 		password: admin
 		
-	Vous pouvez créer autant de compte que vous voulez via la rubrique S'inscrire/Register.
+> Vous pouvez créer autant de compte que vous voulez via la rubrique S'inscrire/Register.
 
 #### Fonctionnalités
  1. Pour la partie fontend de l'application a été développé avec bootsrap.
