@@ -58,15 +58,25 @@ class HomeController extends AbstractController
     /**
      * @Route("/{_locale}/search", name="post_search")
      */
-    public function searchPost(Request $request, EntityManagerInterface $em): Response
+    public function searchPost(Request $request, EntityManagerInterface $em, PaginatorInterface $paginator): Response
     {   
-        $query = $em->createQuery("SELECT p FROM App\Entity\Post p  WHERE p.content LIKE '%".$request->get('search')."%' OR p.title LIKE '%".$request->get('search')."%' ");
-        $posts= $query->getResult();
+        //$query = $em->createQuery("SELECT p FROM App\Entity\Post p  WHERE p.content LIKE '%".$request->get('search')."%' OR p.title LIKE '%".$request->get('search')."%' ");
+        // $posts= $query->getResult();
 
-        return $this->render('home/index.html.twig', [
-            'posts' => $posts,
-            'search' => $request->get('search')
-        ]);
+        // return $this->render('home/index.html.twig', [
+        //     'posts' => $posts,
+        //     'search' => $request->get('search')
+        // ]);
+
+
+        $query = $em->createQuery("SELECT p FROM App\Entity\Post p  WHERE p.content LIKE '%".$request->get('search')."%' OR p.title LIKE '%".$request->get('search')."%' ");
+        $pagination = $paginator->paginate(
+            $query, /* requete*/
+            $request->query->getInt('page', 1), /*numerode page par dafault est 1*/
+            5 /*limit de post de chaque page*/
+        );
+
+        return $this->render('home/index.html.twig', ['pagination' => $pagination]);
     }
 }
 
